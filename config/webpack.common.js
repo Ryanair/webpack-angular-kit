@@ -2,7 +2,7 @@ const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CommonsChunkPlugin = require('webpack-vendor-chunk-plugin');
-
+const autoprefixer = require('autoprefixer');
 
 module.exports = {
   entry: {
@@ -50,8 +50,13 @@ module.exports = {
     //   '~': path.resolve(__dirname, '..', 'src')
     // },
   },
+
   sassLoader: {
     includePaths: [path.resolve(__dirname, '..', 'src/scss')],
     sourceMap: true
+  },
+
+  postcss: function() {
+    return [autoprefixer];
   }
 };

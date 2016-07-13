@@ -4,7 +4,7 @@ const commonConfig = require('./webpack.common.js');
 module.exports = webpackMerge(commonConfig, {
   module: {
     loaders: [
-      { test: /\.scss$/, loaders: ['style', 'css?sourceMap', 'sass?config=sassLoader'] },
+      { test: /\.scss$/, loaders: ['style', 'css?sourceMap', 'postcss-loader', 'sass?config=sassLoader'] },
     ]
-  }
+  },
 });
