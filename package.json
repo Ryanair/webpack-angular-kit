@@ -30,7 +30,12 @@
       "es2015"
     ],
     "plugins": [
-      ["transform-es2015-classes", { "loose": true}]
+      [
+        "transform-es2015-classes",
+        {
+          "loose": true
+        }
+      ]
     ]
   },
   "devDependencies": {
@@ -45,6 +50,7 @@
     "eslint-config-angular": "^0.4.0",
     "eslint-plugin-angular": "^0.12.0",
     "eslint-plugin-import": "^1.10.2",
+    "extract-text-webpack-plugin": "^1.0.1",
     "file-loader": "^0.8.4",
     "html-webpack-plugin": "^1.7.0",
     "karma": "^0.13.9",

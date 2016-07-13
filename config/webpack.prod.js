@@ -6,6 +6,7 @@ const commonConfig = require('./webpack.common.js');
 const WebpackMd5Hash = require('webpack-md5-hash');
 const DedupePlugin = require('webpack/lib/optimize/DedupePlugin');
 const UglifyJsPlugin = require('webpack/lib/optimize/UglifyJsPlugin');
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 
 module.exports = webpackMerge(commonConfig, {
@@ -72,6 +73,19 @@ module.exports = webpackMerge(commonConfig, {
 
   },
 
+  module: {
+    loaders: [
+      {
+        test: /\.scss$/,
+        loader: ExtractTextPlugin.extract('style', 'css!sass?config=sassConfig')
+      }
+    ]
+  },
+
+  sassConfig: {
+    includePaths: [path.resolve(__dirname, '..', 'src/scss')],
+  },
+
   /**
    * Add additional plugins to the compiler.
    *
@@ -125,8 +139,9 @@ module.exports = webpackMerge(commonConfig, {
       mangle: { screw_ie8 : true }, //prod
       compress: { screw_ie8: true }, //prod
       comments: false //prod
-    })
+    }),
 
+    new ExtractTextPlugin("styles.min.css")
   ]
 
 });

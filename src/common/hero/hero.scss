@@ -1,0 +1,10 @@
+@import 'main';
+
+.hero {
+  background-color: $blue;
+  height: 50rem;
+  padding: 3rem;
+  .testing {
+    height: 20px;
+  }
+}

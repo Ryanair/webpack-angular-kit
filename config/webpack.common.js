@@ -27,8 +27,6 @@ module.exports = {
   module: {
     loaders: [
       { test: /\.js$/, loaders: ['ng-annotate','babel-loader'], exclude: /node_modules/ },
-      { test: /\.css$/, loader: 'style-loader!css-loader' },
-      { test: /\.scss$/, loaders: ['style', 'css?sourceMap', 'sass?sourceMap']},
       { test: /\.html$/, loader: 'raw' },
       // inline base64 URLs for <=8k images, direct URLs for the rest
       { test: /\.(png|jpg)$/, loader: 'url-loader?limit=8192'},
@@ -45,5 +43,15 @@ module.exports = {
         loader: 'url?limit=10000&minetype=image/svg+xml' }
     ]
   },
-  devtool: 'eval-source-map'
+  devtool: 'eval-source-map',
+  resolve: {
+    // add alias for application code directory
+    // alias: {
+    //   '~': path.resolve(__dirname, '..', 'src')
+    // },
+  },
+  sassLoader: {
+    includePaths: [path.resolve(__dirname, '..', 'src/scss')],
+    sourceMap: true
+  }
 };
