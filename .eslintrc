@@ -1,0 +1,35 @@
+{
+  "extends": [airbnb-base],
+  "rules": {
+    "comma-dangle": "off",
+    "max-len": ["error", 120, 2, {"ignoreUrls": true}],
+    "func-names": "off",
+    "space-before-function-paren": "off",
+    "no-param-reassign": "warn",
+    "prefer-arrow-callback": "off",
+    "spaced-comment": "off",
+    "no-var": "warn",
+    "one-var": ["error", "never"],
+    "object-shorthand": "warn"
+  },
+  "globals": {
+    "angular": true,
+    "inject": true,
+    "it": true,
+    "expect": true,
+    "spyOn": true,
+    "describe": true,
+    "afterEach": true,
+    "TestElement": true,
+    "beforeEach": true,
+    "moment": true,
+    "jasmine": true,
+    "TestUtils": true,
+    "xit": true,
+    "afterAll": true,
+    "xdescribe": true,
+    "fdescribe": true,
+    "using": true,
+    "chai": true
+  }
+}
